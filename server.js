@@ -33,10 +33,12 @@ var nameArrr = [];
 app.post('/search', function (req, res) {
   console.log(req.body);
   console.log(req.body.location, req.body.term, 'in SEARCH POST');
+  var results = yelpSearch(req.body.location, req.body.term);
+  res.status(200).send('got HEEM');
 });
 
-function yelpSearch (loc, nam) {
-  yelp.search({ term: 'Asian', location: 'San Francisco', limit: 10, sort: 2})
+function yelpSearch (loc, name) {
+  yelp.search({ term: name, location: loc, limit: 8, sort: 2})
   .then(function (data) {
     // console.log('IN DATA', data.businesses);
     data.businesses.forEach(function (value) {
@@ -48,6 +50,11 @@ function yelpSearch (loc, nam) {
     console.error(err);
   });
 }
+
+app.get('/results', function (req, res) {
+  console.log('in GET RESULTS', nameArrr);
+  res.status(200).send(nameArrr);
+});
 
 // app.post('/pics', picController.newPic);
 // app.get('/pics', picController.getAllPics);
