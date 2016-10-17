@@ -7,10 +7,20 @@ angular.module('goolp', [])
           url: '/search',
           data: {location: searchQ.location, term: searchQ.term}
         }).then(function (resp) {
+          console.log(resp.data, 'RESP DATA');
           return resp.data;
         })
         .catch(function (err) {
           return err;
+        });
+      },
+      getAll: function () {
+        return $http({
+          method: 'GET',
+          url: '/results'
+        })
+        .then(function (resp) {
+          return resp.data;
         });
       }
     };
@@ -21,7 +31,14 @@ angular.module('goolp', [])
       Search.addOne({location: $scope.mainLocation, term: $scope.mainName})
       .then(function (val) {
         //TODO: do something with val
-        console.log(val);
+        console.log(val, 'in MAIN CONTROLLER');
+        Search.getAll()
+        .then(function (result) {
+          console.log(result);
+        })
+        .catch(function (err) {
+          console.error(err);
+        });
       })
       .catch(function (err) {
         console.error(err);
