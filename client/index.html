@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app='goolp'>
+  <head>
+    <meta charset="utf-8"/>
+    <title> goolp </title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+  </head>
+  <body>
+    <h1> goolp </h1>
+    <div ng-controller='mainController' ng-keydown='key($event)'>
+    <br>
+<!--         <h2>  </h2>
+        <div class='pictures' align='center'>
+          <span class='left' ng-click='leftClick()'> Left </span>
+          <img align='center' ng-src='{{selectedItem}}'>
+          <span class='right' ng-click='rightClick()'> Right </span>
+        </div> -->
+        <div>
+          <h2> </h2>
+        </div>
+        <div class='upload'> goolp it up </div>
+    <br>
+        <form name='upload'>
+          <input align='center' type='text' name='location' placeholder='City or Zipcode' ng-model='mainLocation'>
+          <input align='center' type='text' name='name' placeholder='Name or Cuisine' ng-model='mainName'>
+          <!-- <input align='center' type='number' name='rating' placeholder='Pic Rating' ng-model='picRating'> -->
+    <br>
+          <div class='button'>
+    <br>
+            <button align='center' ng-click='searchOne()'> Search </button>
+            <button align='center' ng-click='allPics()'> Get </button>
+          </div>
+        </form>
+    </div>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="app/main/main.js"></script>
+  </body>
+</html>
