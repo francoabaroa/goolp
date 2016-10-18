@@ -39,7 +39,7 @@ angular.module('goolp', [])
       annyang.addCallback('result', function(phrases) {
         console.log("I think the user said: ", phrases[0]);
         var lal = phrases[0];
-        lal = lal.split('');
+        lal = lal.split(' ');
         console.log('LAL: ', lal);
         $scope.voiceTest.push(phrases[0]);
         window.command = phrases[0];
