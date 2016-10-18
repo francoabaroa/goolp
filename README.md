@@ -21,7 +21,7 @@
   > 'Goolp - the best of both worlds for the foodie in all of us.' - Some Spokesperson at Goolp
 
 ## How to Get Started ##
-  > It is extremely easy to get started. No account required. Just log on to Goolp, enter your location and restaurant name or cuisine. Then you will get your results on the same page. That's it.
+  > https://goolp.herokuapp.com/ -- input restaurant name, city and GOOLP IT
 
 ## Customer Quote ##
   > 'Back then, I used to struggle with picking a restaurant. With Goolp, I can make an informed decision without having to go do the research myself. Dining out will never be the same. Thanks Goolp!' - Frank Franky
