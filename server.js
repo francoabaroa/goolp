@@ -26,10 +26,10 @@ var resultsArr = [];
 
 //YELP
 var yelp = new Yelp({
-  consumer_key: keys.consumer_key,
-  consumer_secret: keys.consumer_secret,
-  token: keys.token,
-  token_secret: keys.token_secret
+  consumer_key: process.env.consumer_key,
+  consumer_secret: process.env.consumer_secret,
+  token: process.env.token,
+  token_secret: process.env.token_secret
 });
 
 
@@ -56,7 +56,7 @@ function yelpSearch (loc, name) {
     console.error(err);
   });
 
-  request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + modifiedQuery + 'type=restaurant' + '&key=' + keys.googleKey, function (error, response, body) {
+  request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + modifiedQuery + 'type=restaurant' + '&key=' + process.env.googleKey, function (error, response, body) {
     if (!error && response.statusCode === 200) {
       var data = JSON.parse(body);
       resultsArr.push({name: data.results[0].name, rating: data.results[0].rating});
