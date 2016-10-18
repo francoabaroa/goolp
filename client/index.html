@@ -31,6 +31,11 @@
             <button align='center' ng-click='allPics()'> Get </button>
           </div>
         </form>
+
+        <ul>
+          <li ng-repeat='result in searchResults'> Name: {{result.name}} - Rating: {{result.rating}} - Total Reviews: {{result.totalReviews}} </li>
+        </ul>
+
     </div>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
