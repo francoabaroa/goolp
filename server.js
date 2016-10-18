@@ -32,6 +32,8 @@ var resultsArr = [];
 //   token_secret: keys.token_secret
 // });
 
+//
+
 app.post('/search', function (req, res) {
   resultsArr = [];
   var results = yelpSearch(req.body.location, req.body.term);
