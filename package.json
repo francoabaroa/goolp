@@ -11,7 +11,7 @@
   "scripts": {
     "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
     "start": "nodemon --ignore node_modules server.js",
-    // "lint": "eslint ./"
+    "lint": "eslint ./"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
