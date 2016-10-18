@@ -40,6 +40,8 @@ angular.module('goolp', [])
         console.log("I think the user said: ", phrases[0]);
         var lal = phrases[0];
         lal = lal.split(' ');
+        var indexy = lal.indexOf('in');
+        console.log(indexy);
         console.log('LAL: ', lal);
         $scope.voiceTest.push(phrases[0]);
         window.command = phrases[0];
