@@ -28,44 +28,25 @@ angular.module('goolp', [])
     $scope.searchResults = [];
     $scope.avg = 0;
     $scope.currentName;
-    // $scope.voiceTest = [];
 
+    //VOICE SEARCH
     if (annyang) {
-      // Let's define a command.
-      var commands = {
-        'hello': function() { alert('Hello world!'); }
-      };
-
       annyang.addCallback('result', function(phrases) {
-        console.log("I think the user said: ", phrases[0]);
-        var lal = phrases[0];
-        lal = lal.split(' ');
-        var indexy = lal.indexOf('in');
-        console.log(indexy);
-        lal.splice(indexy, 1);
-        var rest = lal.slice(0, indexy);
-        var location = lal.slice(indexy);
-        rest = rest.join(' ');
-        location = location.join('');
-        $scope.mainLocation = location;
-        $scope.mainName = rest;
+        $scope.phrase = phrases[0];
+        $scope.phrase = $scope.phrase.split(' ');
+        $scope.index = $scope.phrase.indexOf('in');
+        $scope.phrase.splice($scope.index, 1);
+        $scope.mainName = $scope.phrase.slice(0, $scope.index);
+        $scope.mainLocation = $scope.phrase.slice($scope.index);
+        $scope.mainName = $scope.mainName.join(' ');
+        $scope.mainLocation = $scope.mainLocation.join(' ');
         $scope.searchOne();
-        console.log('LAL: ', rest, location);
-        // $scope.voiceTest.push(phrases[0]);
-        window.command = phrases[0];
-        // console.log("But then again, it could be any of the following: ", phrases);
       });
 
-      // Add our commands to annyang
-      annyang.addCommands(commands);
-
-      // Start listening.
       annyang.start();
     }
 
-
-    console.log('in CONTROLLER', window.command);
-
+    //TEXT SEARCH
     $scope.searchOne = function () {
       $scope.searchResults = [];
       $scope.avg = 0;
