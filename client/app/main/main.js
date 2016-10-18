@@ -29,6 +29,27 @@ angular.module('goolp', [])
     $scope.avg = 0;
     $scope.currentName;
 
+
+    if (annyang) {
+      // Let's define a command.
+      var commands = {
+        'hello': function() { alert('Hello world!'); }
+      };
+
+      annyang.addCallback('result', function(phrases) {
+        console.log("I think the user said: ", phrases[0]);
+        window.command = phrases[0];
+        console.log("But then again, it could be any of the following: ", phrases);
+      });
+
+      // Add our commands to annyang
+      annyang.addCommands(commands);
+
+      // Start listening.
+      annyang.start();
+    }
+
+
     console.log('in CONTROLLER', window.command);
 
     $scope.searchOne = function () {
