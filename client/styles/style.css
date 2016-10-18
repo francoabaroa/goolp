@@ -23,11 +23,11 @@ h4 {
 
 input[type=text] {
   font-family: 'Bungee', cursive;
-  color: #F24153 !important;
+  color: white !important;
   border-color: white;
   text-align: center;
   align-self: center;
-  background-color: white;
+  background-color: F24153;
   outline: none;
   font-size: 18px;
   width: 300px;
@@ -37,21 +37,29 @@ input[type=text] {
   border-width: 4px;
 }
 
-::-webkit-input-placeholder {
-  color: #F24153;
-}
-
-/*form {
-  margin: 0 auto;
-  width:270px;
-}*/
-
 button {
   font-size: 28px;
   background-color: #F24153;
   border-color: white;
   align-self: center;
   color: white;
+  padding: 20px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 6px;
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  color: #F24153;
+}
+
+button {
+  font-size: 28px;
+  background-color: white;
+  border-color: white;
+  align-self: center;
+  color: #F24153;
   padding: 20px;
   border-radius: 20px;
   border-style: solid;

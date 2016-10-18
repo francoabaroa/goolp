@@ -4,11 +4,10 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var Yelp = require('yelp');
 var request = require('request');
-// var keys = require('./server/envir/serverConfig.js');
 var path = require('path');
 var app = express();
 app.set('port', process.env.PORT);
-// var picController = require('./server/pictures/picController.js');
+// var keys = require('./server/envir/serverConfig.js');
 
 
 //MONGO CONNECTION
@@ -32,13 +31,18 @@ var yelp = new Yelp({
   token_secret: process.env.token_secret
 });
 
-
 app.post('/search', function (req, res) {
   resultsArr = [];
   var results = yelpSearch(req.body.location, req.body.term);
   res.status(200).send('POST request successful');
 });
 
+app.get('/results', function (req, res) {
+  res.status(200).send(resultsArr);
+});
+
+
+//YELP API REQUEST
 function yelpSearch (loc, name) {
   var searchQuery = "" + name + ' ' +  loc;
   var modifiedQuery = searchQuery.split(' ').join('+');
@@ -56,6 +60,7 @@ function yelpSearch (loc, name) {
     console.error(err);
   });
 
+  //GOOGLE API REQUEST
   request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + modifiedQuery + 'type=restaurant' + '&key=' + process.env.googleKey, function (error, response, body) {
     if (!error && response.statusCode === 200) {
       var data = JSON.parse(body);
@@ -66,12 +71,8 @@ function yelpSearch (loc, name) {
   });
 }
 
-app.get('/results', function (req, res) {
-  res.status(200).send(resultsArr);
-});
 
-
-// start listening to requests on port 8000
+// start listening to requests on port 4568
 console.log('goolp is listening on 4568');
 app.listen(process.env.PORT);
 
