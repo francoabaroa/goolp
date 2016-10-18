@@ -26,12 +26,12 @@ var resultsArr = [];
 
 //YELP
 var yelp = new Yelp({
-  // consumer_key: keys.consumer_key,
-  // consumer_secret: keys.consumer_secret,
-  // token: keys.token,
-  // token_secret: keys.token_secret
+  consumer_key: keys.consumer_key,
+  consumer_secret: keys.consumer_secret,
+  token: keys.token,
+  token_secret: keys.token_secret
 });
-//
+
 
 app.post('/search', function (req, res) {
   resultsArr = [];
