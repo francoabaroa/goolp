@@ -3,14 +3,17 @@ var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var Yelp = require('yelp');
+var request = require('request');
 var keys = require('./server/envir/serverConfig.js');
-// var picController = require('./server/pictures/picController.js');
 var path = require('path');
 var app = express();
 app.set('port', 4568);
+// var picController = require('./server/pictures/picController.js');
+
 
 //MONGO CONNECTION
 mongoose.connect('mongodb://localhost/goolp');
+
 
 //MIDDLEWARE
 app.use(morgan('dev'));
@@ -18,8 +21,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, 'client')));
 
-//YELP
 
+var resultsArr = [];
+
+//YELP
 // var yelp = new Yelp({
 //   consumer_key: keys.consumer_key,
 //   consumer_secret: keys.consumer_secret,
@@ -27,37 +32,40 @@ app.use('/', express.static(path.join(__dirname, 'client')));
 //   token_secret: keys.token_secret
 // });
 
-var nameArrr = [];
-
-
 app.post('/search', function (req, res) {
-  console.log(req.body);
-  console.log(req.body.location, req.body.term, 'in SEARCH POST');
   var results = yelpSearch(req.body.location, req.body.term);
   res.status(200).send('got HEEM');
 });
 
 function yelpSearch (loc, name) {
-  yelp.search({ term: name, location: loc, limit: 8, sort: 2})
+  var searchQuery = "" + name + ' ' +  loc;
+  var modifiedQuery = searchQuery.split(' ').join('+');
+
+  yelp.search({ term: name, location: loc, limit: 1})
   .then(function (data) {
-    // console.log('IN DATA', data.businesses);
     data.businesses.forEach(function (value) {
-      nameArrr.push({name: value.name, rating: value.rating, totalReviews: value.review_count});
+      resultsArr.push({name: value.name, rating: value.rating, totalReviews: value.review_count});
     });
-    console.log(nameArrr);
   })
   .catch(function (err) {
     console.error(err);
   });
+
+  request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + modifiedQuery + '&key=' + keys.googleKey, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      var data = JSON.parse(body);
+      resultsArr.push({name: data.results[0].name, rating: data.results[0].rating});
+    } else {
+      console.error(error);
+    }
+  });
 }
 
 app.get('/results', function (req, res) {
-  console.log('in GET RESULTS', nameArrr);
-  res.status(200).send(nameArrr);
+  console.log('in GET RESULTS', resultsArr);
+  res.status(200).send(resultsArr);
 });
 
-// app.post('/pics', picController.newPic);
-// app.get('/pics', picController.getAllPics);
 
 // start listening to requests on port 8000
 console.log('goolp is listening on 4568');
