@@ -4,7 +4,7 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var Yelp = require('yelp');
 var request = require('request');
-var keys = require('./server/envir/serverConfig.js');
+// var keys = require('./server/envir/serverConfig.js');
 var path = require('path');
 var app = express();
 app.set('port', 4568);
