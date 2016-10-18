@@ -25,13 +25,12 @@ app.use('/', express.static(path.join(__dirname, 'client')));
 var resultsArr = [];
 
 //YELP
-// var yelp = new Yelp({
-//   consumer_key: keys.consumer_key,
-//   consumer_secret: keys.consumer_secret,
-//   token: keys.token,
-//   token_secret: keys.token_secret
-// });
-
+var yelp = new Yelp({
+  // consumer_key: keys.consumer_key,
+  // consumer_secret: keys.consumer_secret,
+  // token: keys.token,
+  // token_secret: keys.token_secret
+});
 //
 
 app.post('/search', function (req, res) {
@@ -43,18 +42,21 @@ app.post('/search', function (req, res) {
 function yelpSearch (loc, name) {
   var searchQuery = "" + name + ' ' +  loc;
   var modifiedQuery = searchQuery.split(' ').join('+');
+  console.log(name, 'name');
 
   yelp.search({ term: name, location: loc, limit: 1})
   .then(function (data) {
-    data.businesses.forEach(function (value) {
-      resultsArr.push({name: value.name, rating: value.rating, totalReviews: value.review_count});
-    });
+    console.log('DATA: ', data.businesses[0].name);
+    resultsArr.push({name: data.businesses[0].name, rating: data.businesses[0].rating});
+    // data.businesses.forEach(function (value) {
+    //   resultsArr.push({name: value.name, rating: value.rating, totalReviews: value.review_count});
+    // });
   })
   .catch(function (err) {
     console.error(err);
   });
 
-  request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + modifiedQuery + '&key=' + keys.googleKey, function (error, response, body) {
+  request('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + modifiedQuery + 'type=restaurant' + '&key=' + keys.googleKey, function (error, response, body) {
     if (!error && response.statusCode === 200) {
       var data = JSON.parse(body);
       resultsArr.push({name: data.results[0].name, rating: data.results[0].rating});
@@ -65,7 +67,6 @@ function yelpSearch (loc, name) {
 }
 
 app.get('/results', function (req, res) {
-  console.log('in GET RESULTS', resultsArr);
   res.status(200).send(resultsArr);
 });
 
