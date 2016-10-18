@@ -33,6 +33,7 @@ var resultsArr = [];
 // });
 
 app.post('/search', function (req, res) {
+  resultsArr = [];
   var results = yelpSearch(req.body.location, req.body.term);
   res.status(200).send('got HEEM');
 });
