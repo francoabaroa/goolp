@@ -39,6 +39,7 @@ angular.module('goolp', [])
           Search.getAll()
           .then(function (result) {
             result.forEach(function (val) {
+              $scope.searchResults = [];
               $scope.avg+= val.rating;
               $scope.currentName = val.name;
               $scope.searchResults.push(val);
