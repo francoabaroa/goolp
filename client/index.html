@@ -4,26 +4,37 @@
     <meta charset="utf-8"/>
     <title> goolp </title>
     <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+
   </head>
   <body>
     <h1> goolp </h1>
-    <div ng-controller='mainController' ng-keydown='key($event)'>
+    <div ng-controller='mainController' ng-keydown='key($event)' class='container'>
     <br>
-        <div class='upload'> goolp it up </div>
     <br>
+        <div>
         <form name='upload'>
-          <input align='center' type='text' name='location' placeholder='City or Zipcode' ng-model='mainLocation'>
-          <input align='center' type='text' name='name' placeholder='Name or Cuisine' ng-model='mainName'>
+        <span>
+          <input align='center' class='locInput' type='text' name='location' placeholder='City or Zipcode' ng-model='mainLocation'>
+        </span>
+    <br>
+    <br>
+          <span>
+          <input align='center' class='nameInput' type='text' name='name' placeholder='Name or Cuisine' ng-model='mainName'>
+          </span>
           <!-- <input align='center' type='number' name='rating' placeholder='Pic Rating' ng-model='picRating'> -->
+        </form>
+        </div>
     <br>
           <div class='button'>
     <br>
-            <button align='center' ng-click='searchOne()'> Search </button>
+    <br>
+            <button align='center' ng-click='searchOne()'> Goolp It </button>
           </div>
-        </form>
+
 
         <div>
-          <h2 class='mainInfo'> {{currentName}} {{divider}} {{ratingAvg}} </h2>
+          <h2 class='mainInfo'> {{currentName}} {{divider}} {{rating}} {{ratingAvg}} </h2>
         </div>
 
     </div>

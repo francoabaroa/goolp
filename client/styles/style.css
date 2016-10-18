@@ -1,3 +1,89 @@
-.mainInfo {
+body {
+  font-family: 'Bungee', cursive;
+  background-color: #F24153;
+  color: white;
+}
+
+body, input, button, select, option, textarea {
+  font-family: 'Bungee', cursive;
+}
+
+h1 {
+  font-size: 105px;
+  text-align: center;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+input[type=text] {
+/*  border: 4px solid #F24153;*/
+  font-family: 'Bungee', cursive;
+  color: white !important;
+  border-color: white;
+  text-align: center;
+  align-self: center;
+  background-color: #F24153;
+  outline: none;
+  font-size: 19px;
+  width: 300px;
+  height:60px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 4px;
+}
+
+::-webkit-input-placeholder {
+  color: white;
+}
+
+form {
+  margin: 0 auto;
+  width:270px;
+}
+
+button {
   font-size: 40px;
+  background-color: #F24153;
+  border-color: white;
+  align-self: center;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 4px;
+  outline: none;
+}
+
+.locInput {
+  /*float:left;*/
+  display: inline;
+}
+
+.nameInput {
+  /*float: right;*/
+  display: inline;
+}
+
+.mainInfo {
+  font-size: 60px;
+  border-color: black;
+  text-align: center;
+}
+
+.upload {
+  font-size: 19px;
+  text-align: center;
+}
+
+.button {
+  text-align: center;
+}
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+span {
+  display: inline;
 }
