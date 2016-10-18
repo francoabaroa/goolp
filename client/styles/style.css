@@ -27,7 +27,7 @@ input[type=text] {
   border-color: white;
   text-align: center;
   align-self: center;
-  background-color: F24153;
+  background-color: #F24153;
   outline: none;
   font-size: 18px;
   width: 300px;
@@ -35,19 +35,6 @@ input[type=text] {
   border-radius: 10px;
   border-style: solid;
   border-width: 4px;
-}
-
-button {
-  font-size: 28px;
-  background-color: #F24153;
-  border-color: white;
-  align-self: center;
-  color: white;
-  padding: 20px;
-  border-radius: 20px;
-  border-style: solid;
-  border-width: 6px;
-  outline: none;
 }
 
 ::-webkit-input-placeholder {
