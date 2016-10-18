@@ -28,7 +28,7 @@ angular.module('goolp', [])
     $scope.searchResults = [];
     $scope.avg = 0;
     $scope.currentName;
-    $scope.voiceTest = [];
+    // $scope.voiceTest = [];
 
     if (annyang) {
       // Let's define a command.
@@ -44,11 +44,14 @@ angular.module('goolp', [])
         console.log(indexy);
         lal.splice(indexy, 1);
         var rest = lal.slice(0, indexy);
-        var location = lal.slice(indexy, lal.length - 1);
-        rest = rest.join('');
+        var location = lal.slice(indexy);
+        rest = rest.join(' ');
         location = location.join('');
+        $scope.mainLocation = location;
+        $scope.mainName = rest;
+        $scope.searchOne();
         console.log('LAL: ', rest, location);
-        $scope.voiceTest.push(phrases[0]);
+        // $scope.voiceTest.push(phrases[0]);
         window.command = phrases[0];
         // console.log("But then again, it could be any of the following: ", phrases);
       });
