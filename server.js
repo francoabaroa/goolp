@@ -12,7 +12,7 @@ app.set('port', 4568);
 
 
 //MONGO CONNECTION
-mongoose.connect('mongodb://localhost/goolp');
+// mongoose.connect('mongodb://localhost/goolp');
 
 
 //MIDDLEWARE
