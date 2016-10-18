@@ -42,7 +42,24 @@
     </div>
     <!-- <script src="lib/angular/angular.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.0/annyang.min.js"></script>
     <!-- <script src="lib/angular-route/angular-route.js"></script> -->
     <script src="app/main/main.js"></script>
+    <script>
+        console.log('hello world');
+
+        if (annyang) {
+          // Let's define a command.
+          var commands = {
+            'hello': function() { alert('Hello world!'); }
+          };
+
+          // Add our commands to annyang
+          annyang.addCommands(commands);
+
+          // Start listening.
+          annyang.start();
+        }
+    </script>
   </body>
 </html>
