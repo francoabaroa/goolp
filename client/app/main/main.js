@@ -31,6 +31,10 @@ angular.module('goolp', [])
 
     //VOICE SEARCH
     if (annyang) {
+      var commands = {
+        'hello': function() { alert('Hello world!'); }
+      };
+
       annyang.addCallback('result', function(phrases) {
         $scope.phrase = phrases[0];
         $scope.phrase = $scope.phrase.split(' ');
@@ -40,9 +44,11 @@ angular.module('goolp', [])
         $scope.mainLocation = $scope.phrase.slice($scope.index);
         $scope.mainName = $scope.mainName.join(' ');
         $scope.mainLocation = $scope.mainLocation.join(' ');
+        console.log($scope.mainLocation, $scope.mainName);
         $scope.searchOne();
       });
 
+      annyang.addCommands(commands);
       annyang.start();
     }
 
