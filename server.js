@@ -7,7 +7,7 @@ var request = require('request');
 // var keys = require('./server/envir/serverConfig.js');
 var path = require('path');
 var app = express();
-app.set('port', 4568);
+app.set('port', process.env.PORT);
 // var picController = require('./server/pictures/picController.js');
 
 
@@ -73,7 +73,7 @@ app.get('/results', function (req, res) {
 
 // start listening to requests on port 8000
 console.log('goolp is listening on 4568');
-app.listen(4568);
+app.listen(process.env.PORT);
 
 // export our app for testing and flexibility, required by index.js
 module.exports = app;
