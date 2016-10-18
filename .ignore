@@ -1,0 +1,4 @@
+"eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+
+
+ //-/*"postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",*/

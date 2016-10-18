@@ -9,7 +9,6 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash",
     "start": "nodemon --ignore node_modules server.js",
     "lint": "eslint ./"
   },
@@ -33,7 +32,6 @@
     "browser-sync": "^2.11.2",
     "clone-stats": "0.0.1",
     "eslint": "^3.8.0",
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "eslint-plugin-react": "^6.4.1",
     "gulp": "^3.8.5",
     "gulp-babel": "^6.1.2",
