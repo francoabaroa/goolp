@@ -29,6 +29,8 @@ angular.module('goolp', [])
     $scope.avg = 0;
     $scope.currentName;
 
+    console.log('in CONTROLLER', window.command);
+
     $scope.searchOne = function () {
       $scope.searchResults = [];
       $scope.avg = 0;
