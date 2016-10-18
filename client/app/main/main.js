@@ -45,6 +45,7 @@ angular.module('goolp', [])
         $scope.mainName = $scope.mainName.join(' ');
         $scope.mainLocation = $scope.mainLocation.join(' ');
         console.log($scope.mainLocation, $scope.mainName);
+        console.log('in ANNYANG');
         $scope.searchOne();
       });
 
