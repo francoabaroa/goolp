@@ -9,22 +9,24 @@
   </head>
   <body>
     <h1> goolp </h1>
+    <h4> - when google meets yelp - </h4>
     <div ng-controller='mainController' ng-keydown='key($event)' class='container'>
     <br>
     <br>
         <div>
+
         <form name='upload'>
-        <span>
-          <input align='center' class='locInput' type='text' name='location' placeholder='City or Zipcode' ng-model='mainLocation'>
-        </span>
-    <br>
-    <br>
-          <span>
-          <input align='center' class='nameInput' type='text' name='name' placeholder='Name or Cuisine' ng-model='mainName'>
-          </span>
-          <!-- <input align='center' type='number' name='rating' placeholder='Pic Rating' ng-model='picRating'> -->
-        </form>
+        <div class="two-col">
+            <div class="col1">
+                <!-- <label for="field1">Name or Cuisine</label> -->
+                <input align='center' autocomplete='off' class='nameInput' type='text' name='name' placeholder='Name or Cuisine' ng-model='mainName'>
+            </div>
+            <div class="col2">
+                <!-- <label for="field2">City or Zip</label> -->
+                <input align='center' autocomplete='off' class='locInput' type='text' name='location' placeholder='City or Zipcode' ng-model='mainLocation'>
+            </div>
         </div>
+        </form>
     <br>
           <div class='button'>
     <br>
@@ -33,7 +35,7 @@
           </div>
 
 
-        <div>
+        <div class='results'>
           <h2 class='mainInfo'> {{currentName}} {{divider}} {{rating}} {{ratingAvg}} </h2>
         </div>
 

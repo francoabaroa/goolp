@@ -44,8 +44,8 @@ angular.module('goolp', [])
               $scope.searchResults.push(val);
             });
             $scope.ratingAvg = ($scope.avg / 2);
-            $scope.divider = ' - ';
-            $scope.rating = 'rating:';
+            // $scope.divider = ' - ';
+            // $scope.rating = 'rating:';
             console.log(result);
           })
           .catch(function (err) {
