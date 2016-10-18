@@ -28,7 +28,7 @@ angular.module('goolp', [])
     $scope.searchResults = [];
     $scope.avg = 0;
     $scope.currentName;
-
+    $scope.voiceTest = [];
 
     if (annyang) {
       // Let's define a command.
@@ -38,8 +38,12 @@ angular.module('goolp', [])
 
       annyang.addCallback('result', function(phrases) {
         console.log("I think the user said: ", phrases[0]);
+        var lal = phrases[0];
+        lal = lal.split('');
+        console.log('LAL: ', lal);
+        $scope.voiceTest.push(phrases[0]);
         window.command = phrases[0];
-        console.log("But then again, it could be any of the following: ", phrases);
+        // console.log("But then again, it could be any of the following: ", phrases);
       });
 
       // Add our commands to annyang

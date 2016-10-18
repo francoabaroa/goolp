@@ -46,26 +46,26 @@
     <!-- <script src="lib/angular-route/angular-route.js"></script> -->
     <script src="app/main/main.js"></script>
     <script>
-        console.log('hello world');
+        // console.log('hello world');
 
-        if (annyang) {
-          // Let's define a command.
-          var commands = {
-            'hello': function() { alert('Hello world!'); }
-          };
+        // if (annyang) {
+        //   // Let's define a command.
+        //   var commands = {
+        //     'hello': function() { alert('Hello world!'); }
+        //   };
 
-          annyang.addCallback('result', function(phrases) {
-            console.log("I think the user said: ", phrases[0]);
-            window.command = phrases[0];
-            console.log("But then again, it could be any of the following: ", phrases);
-          });
+        //   annyang.addCallback('result', function(phrases) {
+        //     console.log("I think the user said: ", phrases[0]);
+        //     window.command = phrases[0];
+        //     console.log("But then again, it could be any of the following: ", phrases);
+        //   });
 
-          // Add our commands to annyang
-          annyang.addCommands(commands);
+        //   // Add our commands to annyang
+        //   annyang.addCommands(commands);
 
-          // Start listening.
-          annyang.start();
-        }
+        //   // Start listening.
+        //   annyang.start();
+        // }
     </script>
   </body>
 </html>
