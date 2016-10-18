@@ -36,7 +36,7 @@ var yelp = new Yelp({
 app.post('/search', function (req, res) {
   resultsArr = [];
   var results = yelpSearch(req.body.location, req.body.term);
-  res.status(200).send('got HEEM');
+  res.status(200).send('POST request successful');
 });
 
 function yelpSearch (loc, name) {

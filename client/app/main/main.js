@@ -7,7 +7,6 @@ angular.module('goolp', [])
           url: '/search',
           data: {location: searchQ.location, term: searchQ.term}
         }).then(function (resp) {
-          console.log(resp.data, 'RESP DATA');
           return resp.data;
         })
         .catch(function (err) {
@@ -32,6 +31,7 @@ angular.module('goolp', [])
 
     $scope.searchOne = function () {
       $scope.searchResults = [];
+      $scope.avg = 0;
       Search.addOne({location: $scope.mainLocation, term: $scope.mainName})
       .then(function (val) {
         //TODO: do something with val
@@ -39,15 +39,11 @@ angular.module('goolp', [])
           Search.getAll()
           .then(function (result) {
             result.forEach(function (val) {
-              $scope.searchResults = [];
               $scope.avg+= val.rating;
               $scope.currentName = val.name;
               $scope.searchResults.push(val);
             });
             $scope.ratingAvg = ($scope.avg / 2);
-            // $scope.divider = ' - ';
-            // $scope.rating = 'rating:';
-            console.log(result);
           })
           .catch(function (err) {
             console.error(err);
