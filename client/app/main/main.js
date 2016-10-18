@@ -42,7 +42,12 @@ angular.module('goolp', [])
         lal = lal.split(' ');
         var indexy = lal.indexOf('in');
         console.log(indexy);
-        console.log('LAL: ', lal);
+        lal.splice(indexy, 1);
+        var rest = lal.slice(0, indexy);
+        var location = lal.slice(indexy, lal.length - 1);
+        rest = rest.join('');
+        location = location.join('');
+        console.log('LAL: ', rest, location);
         $scope.voiceTest.push(phrases[0]);
         window.command = phrases[0];
         // console.log("But then again, it could be any of the following: ", phrases);
