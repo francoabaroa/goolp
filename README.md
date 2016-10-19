@@ -11,6 +11,9 @@
 ## Sub-Heading ##
   > This is a great tool for anyone that is hungry and is looking for the best place to eat.
 
+## Techstack ##
+  > AngularJS, ExpressJS, Node.JS, Yelp API, Google Places API, annyang! (speech recognition library)
+
 ## Summary ##
   > Online restaurant reviews tend to vary across different websites. Imagine this: you look up a specific restaurant on Yelp and see that it has 3 stars overall. Then you look up the same restaurant on Google Maps. It has 4.3 stars overall. Confusion takes over and you don't know which website to trust. Goolp solves this issue by returning an aggregate restaurant review overall count (Yelp + Google) in order to help you make an informed food-cision.
 
