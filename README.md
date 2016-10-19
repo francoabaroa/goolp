@@ -1,8 +1,8 @@
 # Goolp #
-> This is a project I completed as a student at [hackreactor](http://hackreactor.com).
-
 ![Homepage](/screenshots/shot1.png?raw=true "Homepage")
 ![Example Query](/screenshots/shot2.png?raw=true "Search Query")
+
+> This is a project I completed as a student at [hackreactor](http://hackreactor.com).
 
 
 ## Heading ##
