@@ -9,36 +9,30 @@
   </head>
   <body>
     <h1> goolp </h1>
-    <h4> - yelp + google - </h4>
+    <h4> - google + yelp - </h4>
     <div ng-controller='mainController' ng-keydown='key($event)' class='container'>
     <br>
     <br>
         <div>
-
         <form name='upload'>
         <div class="two-col">
-            <div class="col1">
-                <!-- <label for="field1">Name or Cuisine</label> -->
-                <input align='center' autocomplete='off' class='nameInput' type='text' name='name' placeholder='Restaurant Name' ng-model='mainName'>
-            </div>
-            <div class="col2">
-                <!-- <label for="field2">City or Zip</label> -->
-                <input align='center' autocomplete='off' class='locInput' type='text' name='location' placeholder='City' ng-model='mainLocation'>
-            </div>
+        <div class="col1">
+        <input align='center' autocomplete='off' class='nameInput' type='text' name='name' placeholder='Restaurant Name' ng-model='mainName'>
+        </div>
+        <div class="col2">
+        <input align='center' autocomplete='off' class='locInput' type='text' name='location' placeholder='City' ng-model='mainLocation'>
+        </div>
         </div>
         </form>
     <br>
-          <div class='button'>
+        <div class='button'>
     <br>
     <br>
-            <button align='center' ng-click='searchOne()'> Goolp It </button>
+        <button align='center' ng-click='searchOne()'> Goolp It </button>
           </div>
-
-
         <div class='results'>
-          <h2 class='mainInfo'> {{currentName}} {{divider}} {{rating}} {{ratingAvg}} </h2>
+        <h2 class='mainInfo'> {{currentName}} {{divider}} {{rating}} <span class='rate'> {{ratingAvg}} </span> </h2>
         </div>
-
     </div>
     <!-- <script src="lib/angular/angular.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>

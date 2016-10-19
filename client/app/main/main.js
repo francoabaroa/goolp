@@ -27,7 +27,6 @@ angular.module('goolp', [])
   .controller('mainController', function ($scope, Search) {
     $scope.searchResults = [];
     $scope.avg = 0;
-    $scope.rating = 'Goolp Rating: '
 
 
     //VOICE SEARCH
@@ -68,6 +67,7 @@ angular.module('goolp', [])
               // $scope.currentName = val.name;
               $scope.searchResults.push(val);
             });
+            $scope.rating = 'Goolp Rating: '
             $scope.ratingAvg = ($scope.avg / 2);
           })
           .catch(function (err) {
