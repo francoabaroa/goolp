@@ -1,7 +1,8 @@
 # Goolp #
 > This is a project I completed as a student at [hackreactor](http://hackreactor.com).
 
-![Alt text](/screenshots/shot1.png?raw=true "Optional Title")
+![Homepage](/screenshots/shot1.png?raw=true "Homepage")
+![Example Query](/relative/path/to/img.jpg?raw=true "Search Query")
 
 
 ## Heading ##
