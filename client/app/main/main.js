@@ -59,7 +59,6 @@ angular.module('goolp', [])
       $scope.avg = 0;
       Search.addOne({location: $scope.mainLocation, term: $scope.mainName})
       .then(function (val) {
-        //TODO: do something with val
         setTimeout(function () {
           Search.getAll()
           .then(function (result) {
