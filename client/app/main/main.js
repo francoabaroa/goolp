@@ -44,8 +44,6 @@ angular.module('goolp', [])
         $scope.mainLocation = $scope.phrase.slice($scope.index);
         $scope.mainName = $scope.mainName.join(' ');
         $scope.mainLocation = $scope.mainLocation.join(' ');
-        console.log($scope.mainLocation, $scope.mainName);
-        console.log('in annyang');
         $scope.searchOne();
       });
 
@@ -57,6 +55,7 @@ angular.module('goolp', [])
     $scope.searchOne = function () {
       $scope.searchResults = [];
       $scope.avg = 0;
+
       Search.addOne({location: $scope.mainLocation, term: $scope.mainName})
       .then(function (val) {
         setTimeout(function () {
@@ -64,9 +63,9 @@ angular.module('goolp', [])
           .then(function (result) {
             result.forEach(function (val) {
               $scope.avg+= val.rating;
-              // $scope.currentName = val.name;
               $scope.searchResults.push(val);
             });
+
             $scope.rating = 'Goolp Rating: '
             $scope.ratingAvg = ($scope.avg / 2);
           })

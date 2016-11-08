@@ -6,13 +6,8 @@ var Yelp = require('yelp');
 var request = require('request');
 var path = require('path');
 var app = express();
+
 app.set('port', process.env.PORT);
-// var keys = require('./server/envir/serverConfig.js');
-
-
-//MONGO CONNECTION
-// mongoose.connect('mongodb://localhost/goolp');
-
 
 //MIDDLEWARE
 app.use(morgan('dev'));
@@ -46,15 +41,10 @@ app.get('/results', function (req, res) {
 function yelpSearch (loc, name) {
   var searchQuery = "" + name + ' ' +  loc;
   var modifiedQuery = searchQuery.split(' ').join('+');
-  console.log(name, 'name');
 
   yelp.search({ term: name, location: loc, limit: 1})
   .then(function (data) {
-    console.log('DATA: ', data.businesses[0].name);
     resultsArr.push({name: data.businesses[0].name, rating: data.businesses[0].rating});
-    // data.businesses.forEach(function (value) {
-    //   resultsArr.push({name: value.name, rating: value.rating, totalReviews: value.review_count});
-    // });
   })
   .catch(function (err) {
     console.error(err);
